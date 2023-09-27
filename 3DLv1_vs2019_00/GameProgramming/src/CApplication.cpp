@@ -4,6 +4,7 @@
 #include "CVector.h"
 #include "CTriangle.h"
 
+CVector mEye;
 //ÉNÉâÉXÇÃstaticïœêî
 CTexture CApplication::mTexture;
 CCharacterManager CApplication::mCharacterManager;
@@ -23,7 +24,7 @@ CTexture* CApplication::Texture()
 
 void CApplication::Start()
 {
-
+	mEye = CVector(1.0f, 2.0f, 3.0f);
 }
 
 void CApplication::Update()
@@ -34,7 +35,32 @@ void CApplication::Update()
 	v1.Set(1.0f, 0.0f, 0.0f);
 	v2.Set(0.0f, 0.0f, -0.5f);
 
-	gluLookAt(1.0f, 2.0f, 3.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
+	if (mInput.Key('J'))
+	{
+		mEye = mEye - CVector(0.1f, 0.0f, 0.0f);
+	}
+	if (mInput.Key('L'))
+	{
+		mEye = mEye + CVector(0.1f, 0.0f, 0.0f);
+	}
+	if (mInput.Key('I'))
+	{
+		mEye = mEye - CVector(0.0f, 0.0f, 0.1f);
+	}
+	if (mInput.Key('K'))
+	{
+		mEye = mEye + CVector(0.0f, 0.0f, 0.1f);
+	}
+	if (mInput.Key('O'))
+	{
+		mEye = mEye + CVector(0.0f, 0.1f, 0.0f);
+	}
+	if (mInput.Key('M'))
+	{
+		mEye = mEye - CVector(0.0f, 0.1f, 0.0f);
+	}
+
+	gluLookAt(mEye.X(), mEye.Y(), mEye.Z(), 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
 
 	glBegin(GL_TRIANGLES);
 	glNormal3f(n.X(), n.Y(), n.Z());
@@ -81,3 +107,5 @@ void CApplication::Update()
 	t2.Normal(CVector(1.0f, 0.0f, 0.0f));
 	t2.Render();
 }
+
+

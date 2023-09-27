@@ -34,3 +34,13 @@ float CVector::Z() const
 {
 	return mZ;
 }
+
+CVector CVector::operator+(const CVector& v) const
+{
+	return CVector(mX + v.mX, mY + v.mY, mZ + v.mZ);
+}
+
+CVector CVector::operator-(const CVector& v) const
+{
+	return CVector(mX - v.mX, mY - v.mY, mZ - v.mZ);
+}
