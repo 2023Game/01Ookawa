@@ -10,6 +10,7 @@
 #include "CMiss.h"
 #include <vector>
 #include "CCharacterManager.h"
+#include "CModel.h"
 
 #include "CGame.h"
 #include "CSound.h"
@@ -37,6 +38,8 @@ private:
 	CInput mInput;
 	CFont mFont;
 	CMiss* mpMiss;
+	CModel mModel;
+
 	//CCharacterのポインタの可変長配列
 //	std::vector<CCharacter*> mCharacters;
 public:

@@ -4,6 +4,8 @@
 #include "CVector.h"
 #include "CTriangle.h"
 
+#define MODEL_OBJ "res\\obj.obj", "res\\obj.mtl"
+
 CVector mEye;
 //ÉNÉâÉXÇÃstaticïœêî
 CTexture CApplication::mTexture;
@@ -25,6 +27,7 @@ CTexture* CApplication::Texture()
 void CApplication::Start()
 {
 	mEye = CVector(1.0f, 2.0f, 3.0f);
+	mModel.Load(MODEL_OBJ);
 }
 
 void CApplication::Update()
