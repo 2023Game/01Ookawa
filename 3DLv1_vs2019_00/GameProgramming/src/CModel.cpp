@@ -18,6 +18,7 @@ void CModel::Load(char* obj, char* mtl)
 	FILE* fp;
 	char buf[256];
 	std::vector<CVector> vertex;
+	std::vector<CVector> normal;
 
 	fp = fopen(mtl, "r");
 	if (fp == NULL) 
@@ -44,11 +45,14 @@ void CModel::Load(char* obj, char* mtl)
 	{
 		char str[4][64] = { "", "", "", "" };
 		sscanf(buf, "%s %s %s %s", str[0], str[1], str[2], str[3]);
+
+		//先頭がvの時、頂点ベクトルを作成して追加する
 		if (strcmp(str[0], "v") == 0)
 		{
 			vertex.push_back(CVector(atof(str[1]), atof(str[2]), atof(str[3])));
 		}
 
+		//先頭がfの時、三角形を作成して追加する
 		else if (strcmp(str[0], "f") == 0)
 		{
 			int v[3], n[3];
@@ -57,7 +61,14 @@ void CModel::Load(char* obj, char* mtl)
 			sscanf(str[3], "%d//%d", &v[2], &n[2]);
 			CTriangle t;
 			t.Vertex(vertex[v[0] - 1], vertex[v[1] - 1], vertex[v[2] - 1]);
+			t.Normal(normal[n[0] - 1], normal[n[1] - 1], normal[n[2] - 1]);
 			mTriangles.push_back(t);
+		}
+
+		//先頭がvnの時、法線ベクトルを作成して追加する
+		if (strcmp(str[0], "vn") == 0)
+		{
+			normal.push_back(CVector(atof(str[1]), atof(str[2]), atof(str[3])));
 		}
 
 	}

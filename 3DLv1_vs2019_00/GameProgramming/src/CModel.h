@@ -9,6 +9,7 @@ class CModel
 public:
 	void Load(char* obj, char* mtl);
 	void Render();
+
 private:
 	std::vector<CTriangle> mTriangles;
 };
