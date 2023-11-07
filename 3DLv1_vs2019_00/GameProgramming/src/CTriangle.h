@@ -6,6 +6,8 @@
 class CTriangle
 {
 public:
+	int MaterialIdx();
+	void MaterialIdx(int idx);
 	void Vertex(const CVector& v0, const CVector& v1, const CVector& v2);
 	void Normal(const CVector& n);
 	void Normal(const CVector& v0, const CVector& v1, const CVector& v2);
@@ -13,5 +15,6 @@ public:
 private:
 	CVector mV[3];
 	CVector mN[3];
+	int mMaterialIdx;
 };
 #endif
