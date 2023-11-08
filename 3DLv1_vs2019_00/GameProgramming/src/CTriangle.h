@@ -6,6 +6,7 @@
 class CTriangle
 {
 public:
+	void UV(const CVector& v0, const CVector& v1, const CVector& v2);
 	int MaterialIdx();
 	void MaterialIdx(int idx);
 	void Vertex(const CVector& v0, const CVector& v1, const CVector& v2);
@@ -13,6 +14,7 @@ public:
 	void Normal(const CVector& v0, const CVector& v1, const CVector& v2);
 	void Render();
 private:
+	CVector mUv[3]; //テクスチャマッピング
 	CVector mV[3];
 	CVector mN[3];
 	int mMaterialIdx;
