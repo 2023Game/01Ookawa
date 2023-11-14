@@ -4,7 +4,8 @@
 
 #include "CTexture.h"
 
-class CMaterial {
+class CMaterial 
+{
 public:
 	CTexture* Texture();
 	void Disabled();

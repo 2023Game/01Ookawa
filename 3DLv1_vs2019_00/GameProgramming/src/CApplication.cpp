@@ -3,6 +3,7 @@
 #include "glut.h"
 #include "CVector.h"
 #include "CTriangle.h"
+#include "CMatrix.h"
 
 #define MODEL_OBJ "res\\f14.obj", "res\\f14.mtl"
 //背景モデルデータの指定
@@ -31,6 +32,8 @@ void CApplication::Start()
 	mEye = CVector(1.0f, 2.0f, 3.0f);
 	mModel.Load(MODEL_OBJ);
 	mBackGround.Load(MODEL_BACKGROUND);
+	CMatrix matrix;
+	matrix.Print();
 }
 
 void CApplication::Update()
