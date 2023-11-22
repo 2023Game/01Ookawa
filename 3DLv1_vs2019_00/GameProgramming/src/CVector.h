@@ -1,8 +1,12 @@
+#include "CMatrix.h"
+
 #ifndef CVECTOR_H
 #define CVECTOR_H
 
-class CVector {
+class CVector
+{
 public:
+	CVector operator*(const CMatrix& m);
 	CVector operator-(const CVector& v) const;
 	CVector operator+(const CVector& v) const;
 	CVector();

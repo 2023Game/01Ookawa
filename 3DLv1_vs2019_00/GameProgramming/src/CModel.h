@@ -11,7 +11,7 @@ public:
 	~CModel();
 	void Load(char* obj, char* mtl);
 	void Render();
-
+	void Render(const CMatrix& m);
 private:
 	std::vector<CTriangle> mTriangles;
 	std::vector<CMaterial*> mpMaterials;
