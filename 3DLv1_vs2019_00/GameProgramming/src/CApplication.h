@@ -11,7 +11,7 @@
 #include <vector>
 #include "CCharacterManager.h"
 #include "CModel.h"
-
+#include "CCharacter3.h"
 #include "CGame.h"
 #include "CSound.h"
 
@@ -40,6 +40,8 @@ private:
 	CFont mFont;
 	CMiss* mpMiss;
 	CModel mModel;
+	CCharacter3 mCharacter;
+	CCharacter3 mPlayer;
 
 	//CCharacterのポインタの可変長配列
 //	std::vector<CCharacter*> mCharacters;
