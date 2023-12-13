@@ -41,7 +41,7 @@ private:
 	CMiss* mpMiss;
 	CModel mModel;
 	CCharacter3 mCharacter;
-	CCharacter3 mPlayer;
+	CPlayer mPlayer;
 
 	//CCharacterのポインタの可変長配列
 //	std::vector<CCharacter*> mCharacters;
