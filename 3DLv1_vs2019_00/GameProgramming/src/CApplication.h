@@ -40,7 +40,7 @@ private:
 	CFont mFont;
 	CMiss* mpMiss;
 	CModel mModel;
-	CCharacter3 mCharacter;
+//	CCharacter3 mCharacter;
 	CPlayer mPlayer;
 
 	//CCharacterのポインタの可変長配列
