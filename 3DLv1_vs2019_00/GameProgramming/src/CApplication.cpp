@@ -52,6 +52,9 @@ void CApplication::Start()
 
 void CApplication::Update()
 {
+	//タスクマネージャの更新
+	mTaskManager.Update();
+
 	CVector v0, v1, v2, n;
 	n.Set(0.0f, 1.0f, 0.0f);
 	v0.Set(0.0f, 0.0f, 0.5f);
@@ -88,7 +91,7 @@ void CApplication::Update()
 	//mCharacter.Update();
 	//mCharacter.Render();
 
-	mPlayer.Update();
+	//mPlayer.Update();
 	//カメラのパラメータを作成する
 	CVector e, c, u;//視点、注視点、上方向
 	//視点を求める
@@ -100,12 +103,13 @@ void CApplication::Update()
 	//カメラの設定
 	gluLookAt(e.X(), e.Y(), e.Z(), c.X(), c.Y(), c.Z(), u.X(), u.Y(), u.Z());
 
-	mPlayer.Render();
+	//mPlayer.Render();
 
 	mBackGround.Render();
 
-	//タスクマネージャの更新
-	mTaskManager.Update();
+	
+	//タスクリストの削除
+	mTaskManager.Delete();
 	//タスクマネージャの描画
 	mTaskManager.Render();
 }
