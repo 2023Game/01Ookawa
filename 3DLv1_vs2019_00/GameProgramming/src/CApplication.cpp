@@ -10,7 +10,7 @@
 //背景モデルデータの指定
 #define MODEL_BACKGROUND  "res\\sky.obj", "res\\sky.mtl"
 //敵輸送機モデル
-#define MODEL_C5 "res￥￥c5.obj", "res￥￥c5.mtl"
+#define MODEL_C5 "res\\c5.obj", "res\\c5.mtl"
 
 CVector mEye;
 //クラスのstatic変数
