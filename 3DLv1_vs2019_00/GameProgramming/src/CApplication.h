@@ -19,6 +19,8 @@
 class CApplication
 {
 private:
+	//C5モデル
+	CModel mModelC5;
 	CModel mBackGround; //背景モデル
 	CSound mSoundBgm;	//BGM
 	CSound mSoundOver;	//ゲームオーバー
