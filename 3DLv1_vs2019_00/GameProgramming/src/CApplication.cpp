@@ -4,6 +4,7 @@
 #include "CVector.h"
 #include "CTriangle.h"
 #include "CMatrix.h"
+#include "CCollisionManager.h"
 
 
 #define MODEL_OBJ "res\\f14.obj", "res\\f14.mtl"
@@ -30,15 +31,13 @@ CTexture* CApplication::Texture()
 	return &mTexture;
 }
 
-CTaskManager CApplication::mTaskManager;
-CTaskManager* CApplication::TaskManager()
-{
-	return &mTaskManager;
-}
 
 
 void CApplication::Start()
 {
+	//ビルボードの生成
+	new CBillBoard(CVector(-6.0f, 3.0f, -10.0f), 1.0f, 1.0f);
+
 	mEye = CVector(1.0f, 2.0f, 3.0f);
 	//C5モデルの読み込み
 	mModelC5.Load(MODEL_C5);
@@ -64,7 +63,10 @@ void CApplication::Start()
 void CApplication::Update()
 {
 	//タスクマネージャの更新
-	mTaskManager.Update();
+	CTaskManager::Instance()->Update();
+
+	//コリジョンマネージャの衝突処理
+	CCollisionManager::Instance()->Collision();
 
 	CVector v0, v1, v2, n;
 	n.Set(0.0f, 1.0f, 0.0f);
@@ -113,6 +115,14 @@ void CApplication::Update()
 	u = CVector(0.0f, 1.0f, 0.0f) * mPlayer.MatrixRotate();
 	//カメラの設定
 	gluLookAt(e.X(), e.Y(), e.Z(), c.X(), c.Y(), c.Z(), u.X(), u.Y(), u.Z());
+	//モデルビュー行列の取得
+	glGetFloatv(GL_MODELVIEW_MATRIX, mModelViewInverse.M());
+	//逆行列の取得
+	mModelViewInverse = mModelViewInverse.Transpose();
+	mModelViewInverse.M(0, 3, 0);
+	mModelViewInverse.M(1, 3, 0);
+	mModelViewInverse.M(2, 3, 0);
+
 
 	//mPlayer.Render();
 
@@ -120,9 +130,17 @@ void CApplication::Update()
 
 	
 	//タスクリストの削除
-	mTaskManager.Delete();
+	CTaskManager::Instance()->Delete();
 	//タスクマネージャの描画
-	mTaskManager.Render();
+	CTaskManager::Instance()->Render();
+
+	CCollisionManager::Instance()->Render();
 }
 
+CMatrix CApplication::mModelViewInverse;
+
+const CMatrix& CApplication::ModelViewInverse()
+{
+	return mModelViewInverse;
+}
 

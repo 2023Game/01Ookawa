@@ -16,6 +16,8 @@
 #include "CSound.h"
 #include "CTaskManager.h"
 
+#include "CBillBoard.h"
+
 class CApplication
 {
 private:
@@ -25,7 +27,10 @@ private:
 	CSound mSoundBgm;	//BGM
 	CSound mSoundOver;	//ゲームオーバー
 	CGame* mpGame;
-	static CTaskManager mTaskManager;
+//	static CTaskManager mTaskManager;
+
+	//モデルビューの逆行列
+	static CMatrix mModelViewInverse;
 	static CCharacterManager mCharacterManager;
 	enum class EState
 	{
@@ -50,7 +55,9 @@ private:
 	//CCharacterのポインタの可変長配列
 //	std::vector<CCharacter*> mCharacters;
 public:
-	static CTaskManager* TaskManager();
+	//モデルビュー行列の取得
+	static const CMatrix& ModelViewInverse();
+//	static CTaskManager* TaskManager();
 	static CCharacterManager* CharacterManager();
 	static CTexture* Texture();
 	//最初に一度だけ実行するプログラム
