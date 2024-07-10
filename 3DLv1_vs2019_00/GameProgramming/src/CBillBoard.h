@@ -1,7 +1,7 @@
 #ifndef CBILLBOARD_H
 #define CBILLBOARD_H
 #include "CCharacter3.h"
-#include "CApplication.h"
+
 /*
 ビルボードクラス
 常にカメラの方を向く四角形

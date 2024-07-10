@@ -30,11 +30,6 @@ void CEffect::Update()
 	//UV下
 	float bot = top - 1.0f / mRows;
 
-	if (int mFrame = 32)
-	{
-		mEnabled = false;
-	}
-
 	//テクスチャマッピング
 	mT[0].UV(CVector(right, top, 0.0f), CVector(left, bot, 0.0f),
 		CVector(right, bot, 0.0f));
@@ -42,6 +37,11 @@ void CEffect::Update()
 		CVector(right, top, 0.0f));
 	//ビルボード更新
 	CBillBoard::Update();
+
+	if (mFrame >= mRows * mCols * mFps)
+	{
+		mEnabled = false;
+	}
 }
 
 void CEffect::Render()
