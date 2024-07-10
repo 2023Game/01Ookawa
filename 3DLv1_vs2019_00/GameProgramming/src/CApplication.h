@@ -16,7 +16,7 @@
 #include "CSound.h"
 #include "CTaskManager.h"
 
-#include "CBillBoard.h"
+
 
 class CApplication
 {
@@ -43,7 +43,7 @@ private:
 //	CCharacter mRectangle;
 	CPlayer* mpPlayer;
 	static CTexture mTexture;
-	CEnemy* mpEnemy;
+	//CEnemy* mpEnemy;
 //	CBullet* mpBullet;
 	CInput mInput;
 	CFont mFont;
