@@ -1,11 +1,24 @@
 #include "CCollider.h"
 #include "CCollisionManager.h"
+
+CCollider::CCollider()
+	: mpParent(nullptr)
+	, mpMatrix(&mMatrix)
+	, mType(EType::ESPHERE)
+	, mRadius(0)
+{
+	//コリジョンマネージャに追加
+	CCollisionManager::Instance()->Add(this);
+}
+
+
 CCollider::CCollider(CCharacter3* parent, CMatrix* matrix,
 	const CVector& position, float radius)
+: CCollider()
 {
 
 	//コリジョンマネージャyに追加
-	CCollisionManager::Instance()->Add(this);
+	//CCollisionManager::Instance()->Add(this);
 
 	//親設定
 	mpParent = parent;

@@ -15,12 +15,16 @@
 #include "CGame.h"
 #include "CSound.h"
 #include "CTaskManager.h"
+#include "CColliderTriangle.h"
 
 
 
 class CApplication
 {
 private:
+	//三角コライダの作成
+	CColliderTriangle mColliderTriangle;
+	CColliderTriangle mColliderTriangle2;
 	//C5モデル
 	CModel mModelC5;
 	CModel mBackGround; //背景モデル
