@@ -109,6 +109,7 @@ void CApplication::Update()
 		mEye = mEye - CVector(0.0f, 0.1f, 0.0f);
 	}
 
+
 	//gluLookAt(mEye.X(), mEye.Y(), mEye.Z(), 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
 
 	//mCharacter.Update();
@@ -118,7 +119,7 @@ void CApplication::Update()
 	//カメラのパラメータを作成する
 	CVector e, c, u;//視点、注視点、上方向
 	//視点を求める
-	e = mPlayer.Position() + CVector(0.0f, 1.0f, -3.0f) * mPlayer.MatrixRotate();
+	e = mPlayer.Position() + CVector(-0.2f, 1.0f, -3.0f) * mPlayer.MatrixRotate();
 	//注視点を求める
 	c = mPlayer.Position();
 	//上方向を求める
@@ -145,6 +146,9 @@ void CApplication::Update()
 	CTaskManager::Instance()->Render();
 
 	CCollisionManager::Instance()->Render();
+
+	
+
 }
 
 CMatrix CApplication::mModelViewInverse;
