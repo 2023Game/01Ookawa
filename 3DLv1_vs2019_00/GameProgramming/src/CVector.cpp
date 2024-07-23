@@ -73,7 +73,7 @@ float CVector::Dot(const CVector& v) const
 //ŠOÏ
 CVector CVector::Cross(const CVector& v) const 
 {
-	return CVector(mY * mZ - v.mZ * mY, mZ * mX - v.mX * mZ, mX * mY - v.mY * mX);
+	return CVector(mY * v.mZ - mZ * v.mY, mZ * v.mX - mX * v.mZ, mX * v.mY - mY * v.mX);
 }
 
 //‰‰Zq‚Ì’è‹`
