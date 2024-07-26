@@ -151,6 +151,11 @@ void CModel::Load(char* obj, char* mtl)
 	CreateVertexBuffer();
 }
 
+const std::vector<CTriangle>& CModel::Triangles() const
+{
+	return mTriangles;
+}
+
 CModel::~CModel()
 {
 	printf("�ʉ߂P\n");

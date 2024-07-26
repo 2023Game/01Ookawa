@@ -16,15 +16,20 @@
 #include "CSound.h"
 #include "CTaskManager.h"
 #include "CColliderTriangle.h"
+#include "CColliderMesh.h"
 
 
 
 class CApplication
 {
 private:
+	//モデルからコライダを生成
+	CColliderMesh mColliderMesh;
+
 	//三角コライダの作成
-	CColliderTriangle mColliderTriangle;
-	CColliderTriangle mColliderTriangle2;
+	//CColliderTriangle mColliderTriangle;
+	//CColliderTriangle mColliderTriangle2;
+
 	//C5モデル
 	CModel mModelC5;
 	CModel mBackGround; //背景モデル

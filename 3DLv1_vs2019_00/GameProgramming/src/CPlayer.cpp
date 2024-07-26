@@ -89,9 +89,4 @@ void CPlayer::Update()
 		bullet->Update();
 		//CApplication::TaskManager()->Add(bullet);
 	}
-
-
 }
-
-
-
