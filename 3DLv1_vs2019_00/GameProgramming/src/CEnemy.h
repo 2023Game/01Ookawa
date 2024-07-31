@@ -4,6 +4,8 @@
 #include "CCharacter3.h"
 #include "CCollider.h"
 #include "CEffect.h"
+#include "CCollisionManager.h"
+
 /*
 エネミークラス
 キャラクタクラスを継承
@@ -19,8 +21,8 @@ public:
 		const CVector& rotation, const CVector& scale);
 	//更新処理
 	void Update();
-	
-	
+	//衝突処理
+	void Collision();
 private:
 	//コライダ
 	CCollider mCollider1;

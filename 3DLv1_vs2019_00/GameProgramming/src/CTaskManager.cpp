@@ -60,12 +60,26 @@ void CTaskManager::Render()
 		task = task->mpPrev;
 	}
 }
+
 void CTaskManager::Remove(CTask* task)
 {
 	//タスクの前の次を、タスクの次にする
 	task->mpPrev->mpNext = task->mpNext;
 	//タスクの次の前を、タスクの前にする
 	task->mpNext->mpPrev = task->mpPrev;
+}
+
+//衝突処理
+void CTaskManager::Collision()
+{
+	//先頭から最後まで繰り返し
+	CTask* task = mHead.mpNext;
+	while (task->mpNext) {
+		//衝突処理を呼ぶ
+		task->Collision();
+		//次へ
+		task = task->mpNext;
+	}
 }
 
 void CTaskManager::Delete()
@@ -99,3 +113,4 @@ CTaskManager* CTaskManager::Instance()
 	}
 	return mpInstance;
 }
+

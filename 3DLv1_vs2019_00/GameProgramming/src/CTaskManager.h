@@ -7,7 +7,8 @@
 タスクマネージャ
 タスクリストの管理
 */
-class CTaskManager {
+class CTaskManager 
+{
 public:
 	//インスタンスの取得
 	static CTaskManager* Instance();
@@ -25,6 +26,8 @@ public:
 	void Update();
 	//描画
 	void Render();
+	//衝突処理
+	void Collision();
 protected:
 	//デフォルトコンストラクタ
 	CTaskManager();

@@ -5,6 +5,7 @@
 //三角形クラスのインクルード
 #include "CTriangle.h"
 #include "CCollider.h"
+#include "CCollisionManager.h"
 
 /*
 弾クラス
@@ -23,7 +24,8 @@ public:
 	void Update();
 	//描画
 	void Render();
-
+	//衝突処理
+	void Collision();
 private:
 	//生存時間
 	int mLife;
