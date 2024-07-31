@@ -1,6 +1,14 @@
 #include "CCharacter3.h"
 #include "CApplication.h"
 
+CCharacter3::CCharacter3(int priority)
+	:mpModel(nullptr)
+{
+	mPriority = priority;
+	CTaskManager::Instance()->Add(this);
+}
+
+
 void CCharacter3::Model(CModel* m)
 {
 	mpModel = m;
