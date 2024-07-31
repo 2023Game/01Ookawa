@@ -103,4 +103,9 @@ void CPlayer::Update()
 		bullet->Update();
 		//CApplication::TaskManager()->Add(bullet);
 	}
+
+	//UIÝ’è
+	CApplication::Ui()->PosY(mPosition.Y());
+	CApplication::Ui()->RotX(mRotation.X());
+	CApplication::Ui()->RotY(mRotation.Y());
 }

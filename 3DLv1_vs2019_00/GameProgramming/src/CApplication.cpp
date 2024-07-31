@@ -74,6 +74,7 @@ void CApplication::Start()
 	//背景モデルから三角コライダを生成
 	//親インスタンスと親行列はなし
 	mColliderMesh.Set(nullptr, nullptr, &mBackGround);
+	spUi = new CUi();	//UIクラスの生成
 }
 
 void CApplication::Update()
@@ -154,8 +155,7 @@ void CApplication::Update()
 
 	CCollisionManager::Instance()->Render();
 
-	
-
+	spUi->Render();	//UIの描画
 }
 
 CMatrix CApplication::mModelViewInverse;
@@ -165,3 +165,14 @@ const CMatrix& CApplication::ModelViewInverse()
 	return mModelViewInverse;
 }
 
+CUi* CApplication::spUi = nullptr;
+
+CUi* CApplication::Ui()
+{
+	return spUi;	//インスタンスのポインタを返す
+}
+
+CApplication::~CApplication()
+{
+	delete spUi;	//インスタンスUiの削除
+}
