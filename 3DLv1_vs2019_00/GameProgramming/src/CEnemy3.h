@@ -26,8 +26,8 @@ public:
 	//更新処理
 	void Update();
 private:
+	CVector mPoint;	//目標地点
 	int mHp;	//ヒットポイント
-
 	//モデルデータ
 	static CModel sModel;
 	//コライダ
