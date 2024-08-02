@@ -26,6 +26,8 @@ public:
 	//更新処理
 	void Update();
 private:
+	int mHp;	//ヒットポイント
+
 	//モデルデータ
 	static CModel sModel;
 	//コライダ
