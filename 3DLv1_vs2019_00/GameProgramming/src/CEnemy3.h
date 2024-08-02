@@ -6,6 +6,7 @@
 #include "CCollider.h"
 #include "CEffect.h"
 #include "CCollisionManager.h"
+#include "CPlayer.h"
 /*
 エネミークラス
 キャラクタクラスを継承
