@@ -1,33 +1,35 @@
-#ifndef CENEMY_H
-#define CENEMY_H
+#ifndef CENEMY3_H
+#define CENEMY3_H
 //キャラクタクラスのインクルード
 #include "CCharacter3.h"
+//コライダクラスのインクルード
 #include "CCollider.h"
 #include "CEffect.h"
 #include "CCollisionManager.h"
-
 /*
 エネミークラス
 キャラクタクラスを継承
 */
-class CEnemy : public CCharacter3
+class CEnemy3 : public CCharacter3
 {
 public:
 	//衝突処理
 	//Collision(コライダ1, コライダ2)
 	void Collision(CCollider* m, CCollider* o);
+	void Collision();
 	//コンストラクタ
-	//CEnemy(モデル, 位置, 回転, 拡縮)
-	CEnemy(CModel* model, const CVector& position,
-		const CVector& rotation, const CVector& scale);
+	CEnemy3();
+	//CEnemy3(位置, 回転, 拡縮)
+	CEnemy3(const CVector& position, const CVector& rotation,
+		const CVector& scale);
 	//更新処理
 	void Update();
-	//衝突処理
-	void Collision();
 private:
+	//モデルデータ
+	static CModel sModel;
 	//コライダ
-	CCollider mCollider1;
-	CCollider mCollider2;
-	CCollider mCollider3;
+	CCollider mCollider;
 };
+
 #endif
+
